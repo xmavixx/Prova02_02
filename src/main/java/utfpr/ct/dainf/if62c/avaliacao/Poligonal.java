@@ -37,10 +37,6 @@ public class Poligonal {
     }
 
     public double getComprimento() {
-        double comprimento = 0;
-        for (int i = 0; i < numeroVertices - 1; i++) {
-            comprimento += vetor[i].distancia(vetor[i + 1]);
-        }
-        return comprimento;
+        return 0;
     }
 }
