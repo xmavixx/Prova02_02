@@ -54,28 +54,10 @@ public class Ponto {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Ponto other = (Ponto) obj;
-        if (Double.doubleToLongBits(this.x) != Double.doubleToLongBits(other.x)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.y) != Double.doubleToLongBits(other.y)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.z) != Double.doubleToLongBits(other.z)) {
-            return false;
-        }
-        return true;
-    }
-
     public Ponto() {
+        x = 0;
+        y = 0;
+        z = 0;
     }
 
     public Ponto(double x, double y, double z) {
@@ -84,21 +66,35 @@ public class Ponto {
         this.z = z;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%f, %f, %f", x, y, z);
-    }
-
     public double dist(Ponto p1) {
-        double dist;
+        double distancia;
         double x1, y1, z1;
         double soma;
         x1 = p1.x - x;
         y1 = p1.y - y;
         z1 = p1.z - z;
-        soma = Math.pow(x1, 2) + Math.pow(y1, 2) + Math.pow(z1, 2);
-        dist = Math.sqrt(soma);
-        return dist;
+        distancia = Math.sqrt((Math.pow(x1, 2) + Math.pow(y1, 2) + Math.pow(z1, 2)));
+        return distancia;
 
+    }
+
+    @Override
+    public String toString() {
+        String nomePonto;
+        nomePonto = getNome() + "(" + x + "," + y + "," + z + ")";
+        return nomePonto;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj.getClass() != getClass() || obj == null) {
+            return false;
+        } else {
+            Ponto p1 = (Ponto) obj;
+            if (x == p1.x && y == p1.y && z == p1.z) {
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -9,17 +9,13 @@ package utfpr.ct.dainf.if62c.avaliacao;
  *
  * @author a1655647
  */
-public class PontoXZ {
-
-    private double x;
-    private double z;
-
-    public PontoXZ() {
-    }
+public class PontoXZ extends Ponto2D {
 
     public PontoXZ(double x, double z) {
-        this.x = x;
-        this.z = z;
+        super(x, 0, z);
     }
 
+    public PontoXZ() {
+        super();
+    }
 }
